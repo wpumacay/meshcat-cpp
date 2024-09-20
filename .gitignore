@@ -154,3 +154,12 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Development build
+misc/main.js
+
+# Editor settings
+.vscode/
+
+# Compile build database
+compile_commands.json
