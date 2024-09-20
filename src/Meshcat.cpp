@@ -411,6 +411,11 @@ void Meshcat::set_object(std::string_view path, const Cylinder& cylinder, const 
     this->pimpl_->set_object(path, cylinder, material);
 }
 
+void Meshcat::set_object(std::string_view path, const Capsule& capsule, const Material& material)
+{
+    this->pimpl_->set_object(path, capsule, material);
+}
+
 void Meshcat::set_object(std::string_view path,
                          const Ellipsoid& ellipsoid,
                          const Material& material)

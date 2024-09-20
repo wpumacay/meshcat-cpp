@@ -188,6 +188,19 @@ struct CylinderTrampoline : public GeometryData
     void msgpack_pack(msgpack::packer<std::stringstream>& o) const override;
 };
 
+SHAPE_TRAMPOLINE(Capsule);
+struct CapsuleTrampoline : public GeometryData
+{
+    const ::MeshcatCpp::Capsule capsule;
+    double capSegments{10};
+    double radialSegments{20};
+
+    CapsuleTrampoline(const ::MeshcatCpp::Capsule& capsule);
+
+    void msgpack_pack(msgpack::packer<std::stringstream>& o) const override;
+};
+
+
 SHAPE_TRAMPOLINE(Mesh);
 struct MeshTrampoline : public GeometryData
 {

@@ -54,6 +54,15 @@ public:
     MESHCAT_CPP_ADD_SHAPE_ATTRIBUTE(double, height);
 };
 
+class Capsule : public Shape
+{
+public:
+    Capsule(double radius, double height);
+
+    MESHCAT_CPP_ADD_SHAPE_ATTRIBUTE(double, radius);
+    MESHCAT_CPP_ADD_SHAPE_ATTRIBUTE(double, height);
+};
+
 class Box : public Shape
 {
 public:

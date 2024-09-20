@@ -22,6 +22,13 @@ Cylinder::Cylinder(double radius, double height)
 {
 }
 
+Capsule::Capsule(double radius, double height)
+    : Shape{.type = "CapsuleGeometry"}
+    , radius_(std::move(radius))
+    , height_(std::move(height))
+{
+}
+
 Box::Box(double width, double depth, double height)
     : Shape{.type = "BoxGeometry"}
     , width_(std::move(width))

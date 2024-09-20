@@ -69,6 +69,23 @@ void CylinderTrampoline::msgpack_pack(msgpack::packer<std::stringstream>& o) con
     PACK_MAP_VAR(o, radialSegments);
 }
 
+CapsuleTrampoline::CapsuleTrampoline(const ::MeshcatCpp::Capsule& capsule)
+    : GeometryData()
+    , capsule(capsule)
+{
+}
+
+void CapsuleTrampoline::msgpack_pack(msgpack::packer<std::stringstream>& o) const
+{
+    o.pack_map(6);
+    PACK_MAP_VAR_FROM_INNER_CLASS(o, capsule, type);
+    PACK_MAP_VAR(o, uuid);
+    PACK_MAP_VAR_WITH_NAME(o, radius, capsule.radius());
+    PACK_MAP_VAR_WITH_NAME(o, length, capsule.height());
+    PACK_MAP_VAR(o, capSegments);
+    PACK_MAP_VAR(o, radialSegments);
+}
+
 BoxTrampoline::BoxTrampoline(const ::MeshcatCpp::Box& box)
     : GeometryData()
     , box(box)

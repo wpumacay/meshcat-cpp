@@ -96,6 +96,10 @@ public:
                     const Material& material = Material::get_default_material());
 
     void set_object(std::string_view path,
+                    const Capsule& capsule,
+                    const Material& material = Material::get_default_material());
+
+    void set_object(std::string_view path,
                     const Box& box,
                     const Material& material = Material::get_default_material());
 

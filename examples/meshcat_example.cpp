@@ -5,6 +5,8 @@
  * license.
  */
 
+#include <array>
+
 #include <MeshcatCpp/Material.h>
 #include <MeshcatCpp/Meshcat.h>
 #include <MeshcatCpp/Shape.h>
@@ -48,18 +50,23 @@ int main()
     matrix_view(1, 3) = -1.75;
     meshcat.set_transform("cylinder", matrix_view);
 
-    const auto stl_path = std::filesystem::path(__FILE__).parent_path() / "misc" / "Dragonite.stl";
-    auto transparent_default = MeshcatCpp::Material::get_default_material();
-    transparent_default.transparent = true;
-    transparent_default.opacity = 0.5;
-    meshcat.set_object("obj", MeshcatCpp::Mesh(stl_path.string(), 0.01), transparent_default);
-    matrix_view(0, 3) = -1;
-    matrix_view(1, 3) = 0;
-    matrix_view(0, 0) = 0;
-    matrix_view(1, 1) = 0;
-    matrix_view(0, 1) = -1;
-    matrix_view(1, 0) = 1;
-    meshcat.set_transform("obj", matrix_view);
+    m.set_color(120, 168, 20);
+    meshcat.set_object("capsule", MeshcatCpp::Capsule(0.25, 0.5), m);
+    matrix_view(1, 3) = -2.75;
+    meshcat.set_transform("capsule", matrix_view);
+
+    // const auto stl_path = std::filesystem::path(__FILE__).parent_path() / "misc" / "Dragonite.stl";
+    // auto transparent_default = MeshcatCpp::Material::get_default_material();
+    // transparent_default.transparent = true;
+    // transparent_default.opacity = 0.5;
+    // meshcat.set_object("obj", MeshcatCpp::Mesh(stl_path.string(), 0.01), transparent_default);
+    // matrix_view(0, 3) = -1;
+    // matrix_view(1, 3) = 0;
+    // matrix_view(0, 0) = 0;
+    // matrix_view(1, 1) = 0;
+    // matrix_view(0, 1) = -1;
+    // matrix_view(1, 0) = 1;
+    // meshcat.set_transform("obj", matrix_view);
 
     meshcat.join();
 
