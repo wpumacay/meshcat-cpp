@@ -43,6 +43,7 @@
 #define MESHCAT_CPP_MESHCAT_H
 
 #include <memory>
+#include <vector>
 
 #include <MeshcatCpp/Material.h>
 #include <MeshcatCpp/MatrixView.h>
@@ -85,7 +86,17 @@ public:
      */
     void join();
 
-    void set_property(std::string_view path, const std::string& property, bool value);
+    void set_property(std::string_view path,
+                      const std::string& property,
+                      double value);
+
+    void set_property(std::string_view path,
+                      const std::string& property,
+                      bool value);
+
+    void set_property(std::string_view path,
+                      const std::string& property,
+                      const std::vector<double>& value);
 
     void set_object(std::string_view path,
                     const Sphere& sphere,

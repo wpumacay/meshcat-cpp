@@ -396,6 +396,15 @@ void Meshcat::set_property(std::string_view path, const std::string& property, b
     this->pimpl_->set_property(path, property, value);
 }
 
+void Meshcat::set_property(std::string_view path, const std::string& property, double value)
+{
+    this->pimpl_->set_property(path, property, value);
+}
+
+void Meshcat::set_property(std::string_view path, const std::string& property, const std::vector<double>& value) {
+    this->pimpl_->set_property(path, property, value);
+}
+
 void Meshcat::set_object(std::string_view path, const Sphere& sphere, const Material& material)
 {
     this->pimpl_->set_object(path, sphere, material);
