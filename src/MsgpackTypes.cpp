@@ -152,7 +152,14 @@ void MeshTrampoline::msgpack_pack(msgpack::packer<std::stringstream>& o) const
     PACK_MAP_VAR_FROM_INNER_CLASS(o, mesh, type);
     PACK_MAP_VAR(o, uuid);
     PACK_MAP_VAR(o, format);
-    PACK_MAP_VAR(o, data);
+    if (format == "stl") {
+        msgpack::type::ext data_ext(0x12, data.data(), data.size());
+        o.pack("data");
+        o.pack(data_ext);
+    }
+    else {
+        PACK_MAP_VAR(o, data);
+    }
 }
 
 MeshData::MeshData()
