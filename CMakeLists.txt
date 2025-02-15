@@ -136,8 +136,6 @@ install_basic_package_files(${PROJECT_NAME}
   VARS_PREFIX ${PROJECT_NAME}
   NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
-include(AddUninstallTarget)
-
 # Build examples
 option(MESHCAT_CPP_BUILT_EXAMPLES "Build the examples" OFF)
 if(${MESHCAT_CPP_BUILT_EXAMPLES})
